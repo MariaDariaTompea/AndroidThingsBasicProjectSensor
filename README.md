@@ -1,5 +1,13 @@
 # Smart Parking Barrier System (Arduino Project)
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Arduino-UNO-00979D?style=for-the-badge&logo=arduino&logoColor=white" />
+  <img src="https://img.shields.io/badge/Language-C++-blue?style=for-the-badge&logo=c%2B%2B&logoColor=white" />
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" />
+</p>
+
+---
+
 ## Overview
 
 This project simulates a smart parking entrance barrier using an Arduino board, an infrared obstacle sensor, a servo motor, and LED indicators.
@@ -36,10 +44,9 @@ The system mimics a real parking gate:
 * Servo Motor (used as barrier mechanism)
 * Infrared Obstacle Sensor (proximity detection)
 * 2 LEDs:
-
   * Green LED (free access)
   * Red LED (car detected)
-* Resistors (for LEDs protection)
+* Resistors (for LED protection)
 * Breadboard
 * Jumper wires
 
@@ -48,17 +55,15 @@ The system mimics a real parking gate:
 ## System Behavior
 
 ### No Obstacle Detected
-
 * Sensor output is HIGH (1)
 * Green LED blinks
 * Red LED is OFF
 * Servo moves to the closed position (barrier down)
 
 ### Obstacle Detected (Car Present)
-
 * Sensor output is LOW (0)
 * Red LED turns ON
-* Green LED turns OFF
+* Green LED is OFF
 * Servo rotates to open the barrier
 
 ---
@@ -66,23 +71,20 @@ The system mimics a real parking gate:
 ## Pin Configuration
 
 | Component       | Arduino Pin |
-| --------------- | ----------- |
+|----------------|-------------|
 | Infrared Sensor | 7           |
-| Green LED       | 2           |
-| Red LED         | 4           |
-| Servo Motor     | A1          |
+| Green LED      | 2           |
+| Red LED        | 4           |
+| Servo Motor    | A1          |
 
 ---
 
 ## Code Explanation
 
 ### Libraries
-
-* `Servo.h`
-  Used to control the servo motor.
+* `Servo.h` – used to control the servo motor
 
 ### Variables
-
 * `senzor` – input pin for infrared sensor
 * `verde` – green LED pin
 * `rosu` – red LED pin
@@ -91,60 +93,50 @@ The system mimics a real parking gate:
 ### Functions
 
 #### `setup()`
-
 * Initializes pins
 * Attaches servo to pin A1
 * Sets initial servo position (90 degrees)
 * Starts serial communication
 
 #### `Roteste_Dreapta()`
-
-* Rotates the servo gradually from 0 to 180 degrees
+* Rotates servo gradually from 0 to 180 degrees
 * Simulates opening the barrier
-* Executes only once per detection using the `rot` flag
+* Runs only once per detection
 
 #### `Roteste_Stanga()`
-
-* Moves servo back to initial position (0 degrees)
-* Simulates closing the barrier
+* Moves servo back to closed position (0 degrees)
 
 #### `Aprinde_Verde()`
-
-* Blinks the green LED to indicate free access
+* Blinks green LED to indicate free access
 
 #### `loop()`
-
-* Continuously reads sensor value
-* If obstacle is detected:
-
-  * Turns ON red LED
-  * Opens barrier
+* Reads sensor continuously
+* If obstacle detected:
+  * Red LED ON
+  * Barrier opens
 * If no obstacle:
-
-  * Turns ON green LED (blinking)
-  * Closes barrier
+  * Green LED blinks
+  * Barrier closes
 
 ---
 
 ## Notes
 
-* The project uses an infrared obstacle sensor instead of an ultrasonic distance sensor.
-* The sensor detects objects based on reflected infrared light.
-* Designed and simulated in Tinkercad.
+* Uses infrared obstacle sensor instead of ultrasonic sensor
+* Detects objects based on reflected IR light
+* Designed and tested in Tinkercad
 
 ---
 
 ## Possible Improvements
 
-* Replace IR sensor with ultrasonic sensor for more accurate distance measurement
+* Replace IR sensor with ultrasonic sensor for better accuracy
 * Add buzzer for sound alerts
-* Add LCD display for status messages
-* Implement automatic closing delay after car passes
+* Add LCD display for system status
+* Add automatic delay-based closing system
 
 ---
 
 ## Author
 
-Maria-Daria Tompea
-
----
+**Maria-Daria Tompea**
