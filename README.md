@@ -15,7 +15,17 @@ The system mimics a real parking gate:
 ## Circuit Diagram
 
 <p align="center">
-  <img src="images/circuit.png" width="500"/>
+  <img src="circuit.png.png" width="500"/>
+</p>
+
+---
+
+## Demonstration Video
+
+<p align="center">
+  <video width="500" controls>
+    <source src="circuitvideo.mp4" type="video/mp4">
+  </video>
 </p>
 
 ---
